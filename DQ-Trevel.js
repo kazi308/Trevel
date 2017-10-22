@@ -1576,7 +1576,11 @@ var Trevel = {
 		}
 	},
 	getCurrentBalance: function() {
-		return parseFloat($('#balance').html());
+		if ($('#bonus_account_balance').length > 0) {
+			return parseFloat($('#bonus_account_balance').html()) + parseFloat($('#balance').html());
+		} else {
+			return parseFloat($('#balance').html());
+		}
 	},
 	placeHighBet: function() {
 		$('#double_your_btc_bet_hi_button').click();
@@ -1725,7 +1729,11 @@ var Trevel = {
 	},
 	//initialize Trevel
 	init: function() {
-		Trevel.startingBalance = Trevel.currentBalance = parseFloat($('#balance').html());
+		if ($('#bonus_account_balance').length > 0) {
+			Trevel.startingBalance = parseFloat($('#bonus_account_balance').html()) + parseFloat($('#balance').html());
+		} else {
+			Trevel.startingBalance = parseFloat($('#balance').html());
+		}
 		Trevel.setBetAmount(Trevel.minBet);
 		Trevel.stop = false;
 		Trevel.swap = true;
