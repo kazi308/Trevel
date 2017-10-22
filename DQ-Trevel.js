@@ -1726,7 +1726,7 @@ var Trevel = {
 		}
 	},
 	//random string for random seed
-	rString: function(length, chars) {
+	rString: function() {
 		var result = '';
 		var length = 16;
 		var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz'
@@ -1825,8 +1825,7 @@ console.log('Click it to set the config. Note: These settings are not persistent
 console.log('To change the default values for these settings, search the script for "prompt"');
 console.log('Enjoy');
 function loop() {
-		env.rSeed();
-	
+	env.rSeed();
 	if (env.stop === false) {
 		var state = env.getAgentState();
 		var action = agent.act(state);
